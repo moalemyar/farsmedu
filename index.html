@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>دریافت گواهی حضور</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Vazirmatn", "Tahoma", sans-serif;
+      background: #f9f9f9;
+      color: #222;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      background: #fff;
+      max-width: 500px;
+      width: 100%;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      margin-bottom: 16px;
+      color: #333;
+    }
+
+    p {
+      font-size: 1rem;
+      margin-bottom: 24px;
+      color: #555;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 14px 24px;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 1.25rem;
+      }
+
+      p {
+        font-size: 0.95rem;
+      }
+
+      button {
+        width: 100%;
+        padding: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>دریافت گواهی حضور برنامه پنجشنبه‌های طلایی</h1>
+    <p>برای هدایت شدن به صفحه مربوط به بازو در پیام‌رسان بله بر روی گزینه زیر ضربه بزنید</p>
+    <button onclick="redirectToBot()">ورود به بازوی معلم یار</button>
+  </div>
+
+  <script>
+    function redirectToBot() {
+      // Replace this with your actual Bale bot link
+      window.location.href = "https://ble.ir/your-bot-username";
+    }
+  </script>
+</body>
+</html>
