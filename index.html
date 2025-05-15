@@ -9,105 +9,156 @@
   <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css" rel="stylesheet" />
 
   <style>
+    :root {
+      --primary-color: #00b894; /* A pleasant, modern green */
+      --primary-hover-color: #00a282;
+      --background-start: #f7f9fc; /* Lighter, cleaner background */
+      --background-end: #eef2f7;
+      --text-heading-color: #2d3436;
+      --text-body-color: #636e72;
+      --white-color: #ffffff;
+      --container-shadow: 0 12px 28px rgba(0, 0, 0, 0.07);
+      --button-shadow: 0 6px 15px rgba(0, 184, 148, 0.25);
+      --button-hover-shadow: 0 8px 20px rgba(0, 162, 130, 0.3);
+      --border-radius-lg: 16px; /* Slightly softer radius */
+      --border-radius-md: 10px;
+      --font-family-main: 'Vazir', sans-serif;
+    }
+
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Vazir', sans-serif;
-      background: linear-gradient(135deg, #f0f9ff, #e0f7fa);
+      font-family: var(--font-family-main);
+      background: linear-gradient(135deg, var(--background-start), var(--background-end));
       display: flex;
       justify-content: center;
       align-items: center;
       min-height: 100vh;
+      padding: 1rem; /* Ensures container doesn't touch edges on small screens */
+      color: var(--text-body-color);
     }
 
     .container {
-      background: white;
-      padding: 2.5rem 2rem;
-      border-radius: 20px;
-      max-width: 480px;
+      background: var(--white-color);
+      padding: 2rem 1.5rem; /* Optimized padding for mobile */
+      border-radius: var(--border-radius-lg);
+      max-width: 420px; /* Good max-width for mobile views */
       width: 100%;
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      box-shadow: var(--container-shadow);
       text-align: center;
-      animation: fadeIn 1s ease-in-out;
+      animation: fadeIn 0.8s ease-out;
     }
 
     @keyframes fadeIn {
-      0% { opacity: 0; transform: translateY(30px); }
-      100% { opacity: 1; transform: translateY(0); }
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .image-container {
-      width: 400px;
-      height: 400px;
-      margin: 0 auto 1.5rem;
+      width: 80px; /* Adjust size as needed for your logo/icon */
+      height: 80px;
+      margin: 0 auto 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .image-container img {
+    .image-container img,
+    .image-container svg { /* Allow for SVG or img */
       width: 100%;
       height: 100%;
       object-fit: contain;
     }
 
     h1 {
-      font-size: 1.8rem;
-      margin-bottom: 0.75rem;
-      color: #333;
+      font-size: 1.6rem; /* Slightly adjusted for balance */
+      margin-bottom: 0.6rem;
+      color: var(--text-heading-color);
+      font-weight: 600; /* Give heading more weight */
     }
 
     p {
-      font-size: 1rem;
-      color: #555;
-      margin-bottom: 2rem;
-      line-height: 1.7;
+      font-size: 0.95rem; /* Good readable size for mobile */
+      color: var(--text-body-color);
+      margin-bottom: 1.75rem;
+      line-height: 1.65;
     }
 
     .action-button {
-    font-family: 'Vazir', sans-serif;
-    background: linear-gradient(135deg, #00c853, #64dd17);
-    color: white;
-    border: none;
-    padding: 0.8rem 2rem;
-    font-size: 1rem;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+      font-family: var(--font-family-main);
+      background-color: var(--primary-color);
+      color: var(--white-color);
+      border: none;
+      padding: 0.85rem 2rem; /* Balanced padding */
+      font-size: 1rem;
+      font-weight: 500; /* Good emphasis */
+      border-radius: var(--border-radius-md);
+      cursor: pointer;
+      transition: background-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+      box-shadow: var(--button-shadow);
+      display: inline-block; /* Ensures it behaves well */
+      width: auto; /* Fit content unless specified */
     }
 
-    .action-button:hover {
-    transform: scale(1.03);
-    background: linear-gradient(135deg, #00b248, #4caf50);
+    .action-button:hover,
+    .action-button:focus { /* Added focus state for accessibility */
+      background-color: var(--primary-hover-color);
+      transform: translateY(-2px);
+      box-shadow: var(--button-hover-shadow);
+      outline: none; /* Remove default focus outline if custom is preferred or not needed */
+    }
+    
+    .action-button:active {
+        transform: translateY(0px); /* Button press effect */
+        box-shadow: 0 3px 8px rgba(0, 184, 148, 0.2);
     }
 
 
-    @media (max-width: 600px) {
+    /* Media query for very small screens or minor adjustments if needed */
+    @media (max-width: 360px) {
       .container {
-        padding: 2rem 1.5rem;
+        padding: 1.5rem 1rem;
       }
 
       h1 {
-        font-size: 1.5rem;
+        font-size: 1.45rem;
       }
 
       p {
-        font-size: 0.95rem;
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .image-container {
+        width: 70px;
+        height: 70px;
+        margin-bottom: 1rem;
       }
 
-      .image-container {
-        width: 160px;
-        height: 160px;
+      .action-button {
+        padding: 0.75rem 1.75rem;
+        font-size: 0.95rem;
       }
     }
   </style>
 </head>
 <body>
   <div class="container">
+    <div class="image-container">
+      <!-- 
+        RECOMMENDATION: Replace this SVG with your actual logo or a relevant icon.
+        For example, if you have an image: <img src="path/to/your-logo.png" alt="معلم یار لوگو">
+      -->
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="var(--primary-color)">
+        <text x="50%" y="58%" dominant-baseline="middle" text-anchor="middle" font-size="60" font-family="Vazir, Arial, sans-serif">🌱</text>
+      </svg>
+    </div>
     
-    <h1>🌱 معلم یار</h1>
+    <h1>معلم یار</h1> <!-- Removed the emoji from here as we have an image/icon above -->
     <p>همکار گرامی، شما می‌توانید با استفاده از گزینه زیر، به بازوی معلم یار در پیام‌رسان بله وارد شوید.</p>
     <button class="action-button" onclick="redirectToBot()">ورود به بازوی معلم‌یار</button>
   </div>
